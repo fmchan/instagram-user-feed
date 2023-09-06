@@ -63,9 +63,10 @@ class TimelineHydrator
         }
 
         if ($mediaType == Timeline::TYPE_REELS) {
-            $reels = new ReelsHydrator();
+            /*$reels = new ReelsHydrator();
             $reels = $reels->reelsBaseHydrator($node);
-            $timeline = $reels;
+            $timeline = $reels;*/
+            echo "Error for Timeline::TYPE_REELS. pass reels\n";
         }
 
         if ($mediaType == Timeline::TYPE_IGTV) {
