@@ -17,7 +17,7 @@ class CommentPost extends AbstractDataFeed
      *
      * @throws InstagramFetchException
      */
-    public function comment(int $postId, string $message): string
+    public function comment(int $postId, string $message): \StdClass
     {
         $endpoint = Endpoints::getCommentUrl($postId);
         return $this->fetchData($endpoint, $message);
@@ -31,7 +31,7 @@ class CommentPost extends AbstractDataFeed
      *
      * @throws InstagramFetchException
      */
-    private function fetchData(string $endpoint, string $message): string
+    private function fetchData(string $endpoint, string $message): \StdClass
     {
         $data = $this->postJsonDataFeed($endpoint, [
             'comment_text'          => $message,

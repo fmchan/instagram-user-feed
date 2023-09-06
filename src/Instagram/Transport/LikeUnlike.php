@@ -16,7 +16,7 @@ class LikeUnlike extends AbstractDataFeed
      *
      * @throws InstagramFetchException
      */
-    public function like(int $postId): string
+    public function like(int $postId): \StdClass
     {
         $endpoint = Endpoints::getLikeUrl($postId);
         return $this->fetchData($endpoint);
@@ -29,7 +29,7 @@ class LikeUnlike extends AbstractDataFeed
      *
      * @throws InstagramFetchException
      */
-    public function unlike(int $postId): string
+    public function unlike(int $postId): \StdClass
     {
         $endpoint = Endpoints::getUnlikeUrl($postId);
         return $this->fetchData($endpoint);
@@ -42,7 +42,7 @@ class LikeUnlike extends AbstractDataFeed
      *
      * @throws InstagramFetchException
      */
-    private function fetchData(string $endpoint): string
+    private function fetchData(string $endpoint): \StdClass
     {
         $data = $this->postJsonDataFeed($endpoint);
 

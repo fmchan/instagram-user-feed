@@ -566,7 +566,7 @@ class Api
      * @throws Exception\InstagramAuthException
      * @throws Exception\InstagramFetchException
      */
-    public function like(int $postId): string
+    public function like(int $postId): \StdClass
     {
         $request = new LikeUnlike($this->client, $this->session);
         return $request->like($postId);
@@ -580,7 +580,7 @@ class Api
      * @throws Exception\InstagramAuthException
      * @throws Exception\InstagramFetchException
      */
-    public function unlike(int $postId): string
+    public function unlike(int $postId): \StdClass
     {
         $request = new LikeUnlike($this->client, $this->session);
         return $request->unlike($postId);
@@ -734,7 +734,7 @@ class Api
      * @throws Exception\InstagramAuthException
      * @throws Exception\InstagramFetchException
      */
-    public function commentPost(int $postId, string $message): string
+    public function commentPost(int $postId, string $message): \StdClass
     {
         $request = new CommentPost($this->client, $this->session);
         return $request->comment($postId, $message);
