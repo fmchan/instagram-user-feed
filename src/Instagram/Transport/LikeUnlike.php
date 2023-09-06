@@ -46,10 +46,11 @@ class LikeUnlike extends AbstractDataFeed
     {
         $data = $this->postJsonDataFeed($endpoint);
 
-        if (!$data->status) {
+        /*if (!$data->status) {
             throw new InstagramFetchException('Whoops, looks like something went wrong!');
         }
 
-        return $data->status;
+        return $data->status;*/
+        return $data;
     }
 }
