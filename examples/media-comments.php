@@ -18,12 +18,12 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     // we need media code
-    $feedComments = $api->getMediaComments('CIvZJcurJaW');
+    $feedComments = $api->getMediaComments('Cwo2UQirCgP');
     //$feedComments = $api->getMediaCommentsById('2463298121680852630');
 
     print_r($feedComments->getComments());
 
-    $feedComments = $api->getMoreMediaComments('CIvZJcurJaW', $feedComments->getEndCursor());
+    $feedComments = $api->getMoreMediaComments('Cwo2UQirCgP', $feedComments->getEndCursor());
 
     print_r($feedComments->getComments());
 

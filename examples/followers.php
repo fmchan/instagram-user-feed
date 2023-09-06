@@ -19,7 +19,7 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     // 1518284433 is robertdowneyjr's account id
-    $userId = 1518284433;
+    $userId = 44532207242;
 
     $followersFeed = $api->getFollowers($userId);
 

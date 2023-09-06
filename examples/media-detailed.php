@@ -19,7 +19,7 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     $media = new Media();
-    $media->setLink('https://www.instagram.com/p/CAnqPB-Jzcj/');
+    $media->setLink('https://www.instagram.com/p/Cwo2UQirCgP/');
 
     $mediaDetailed = $api->getMediaDetailed($media);
 

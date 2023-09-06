@@ -17,8 +17,9 @@ try {
     $api = new Api($cachePool);
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
-    // 1518284433 is robertdowneyjr's account id
-    $userId = 1518284433;
+    // <meta property="instapp:owner_user_id" content="31610061">
+    // profilePage_
+    $userId = 31610061;
 
     $follow = $api->unfollow($userId);
 

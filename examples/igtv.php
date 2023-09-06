@@ -17,7 +17,7 @@ try {
     $api = new Api($cachePool);
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
-    $profile = $api->getProfile('wendyswan');
+    $profile = $api->getProfile('fm.feed');
 
     printIgtvs($profile->getIgtvs());
 

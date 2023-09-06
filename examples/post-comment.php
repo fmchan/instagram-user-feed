@@ -17,10 +17,9 @@ try {
     $api = new Api($cachePool);
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
-    // 2657627124756968810 is id of https://www.instagram.com/p/CThycoMlPVq/
-    $postId = 2657627124756968810;
+    $postId = 3151765207093525653;
 
-    $api->commentPost($postId, 'Awesome!');
+    print_r($api->commentPost($postId, 'Awesome!'));
 } catch (InstagramException $e) {
     print_r($e->getMessage());
 } catch (CacheException $e) {

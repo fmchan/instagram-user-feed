@@ -18,7 +18,7 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     // user must be on live
-    $username = 'pgrimaud';
+    $username = 'fm.feed';
 
     $live = $api->getLive($username);
 

@@ -20,15 +20,19 @@ try {
 
     // get timeline
     $timelineFeed = $api->getTimeline();
+    $countTimeline = 1;
 
+    echo "Count:{$countTimeline}\n";
     printTimeline($timelineFeed);
 
     do {
         $timelineFeed = $api->getTimeline($timelineFeed->getMaxId());
+        echo "Count:{$countTimeline}\n";
         printTimeline($timelineFeed);
 
         // avoid 429 Rate limit from Instagram
         sleep(1);
+        $countTimeline++;
     } while ($timelineFeed->hasMoreTimeline());
 
 } catch (InstagramException $e) {
@@ -41,13 +45,18 @@ function printTimeline(TimelineFeed $timelineFeed)
 {
     /** @var \Instagram\Model\Timeline $timeline */
     foreach ($timelineFeed->getTimeline() as $timeline) {
-        echo 'ID        : ' . $timeline->getContent()->getId() . "\n";
-        echo 'Type      : ' . $timeline->getType() . "\n";
-        echo 'Code      : ' . $timeline->getContent()->getShortCode() . "\n";
-        echo 'Link      : ' . $timeline->getContent()->getLink() . "\n";
-        echo 'Caption   : ' . $timeline->getContent()->getCaption() . "\n";
-        echo 'Likes     : ' . $timeline->getContent()->getLikes() . "\n";
-        echo 'User      : ' . $timeline->getUser()->getFullName() . "\n";
-        echo 'Date      : ' . $timeline->getContent()->getDate()->format('Y-m-d h:i:s') . "\n\n";
+        if ($timeline->getContent() != null) {
+            echo 'ID        : ' . $timeline->getContent()->getId() . "\n";
+            echo 'Code      : ' . $timeline->getContent()->getShortCode() . "\n";
+            echo 'Link      : ' . $timeline->getContent()->getLink() . "\n";
+            echo 'Caption   : ' . $timeline->getContent()->getCaption() . "\n";
+            echo 'Likes     : ' . $timeline->getContent()->getLikes() . "\n";
+            echo 'Date      : ' . $timeline->getContent()->getDate()->format('Y-m-d h:i:s') . "\n";
+        } else {
+            echo 'Content      : null'."\n";
+        }
+        if ($timeline->getUser() != null)
+            echo 'User      : ' . $timeline->getUser()->getFullName() . "\n";
+        echo 'Type      : ' . $timeline->getType() . "\n\n";
     }
 }

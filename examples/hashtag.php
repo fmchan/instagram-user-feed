@@ -17,15 +17,16 @@ try {
     $api = new Api($cachePool);
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
-    $hashtag = $api->getHashtag('paris');
+    $hashtag = $api->getHashtag('hkfoodie');
 
     $medias = $hashtag->getMedias();
+    echo 'media count: '.count($medias);
+    //echo '<pre>';
+    print_r($medias[0]);
 
-    echo '<pre>';
-    print_r($medias);
-
-    $medias = $api->getMoreHashtagMedias('paris', $hashtag->getEndCursor());
-    print_r($medias);
+    $hashtagObj = $api->getMoreHashtagMedias('hkfoodie', $hashtag->getEndCursor());
+    echo 'media count: '.count($hashtagObj->getMedias());
+    print_r($hashtagObj->getMedias()[0]);
 
 } catch (InstagramException $e) {
     print_r($e->getMessage());

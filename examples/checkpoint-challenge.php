@@ -19,7 +19,7 @@ try {
     $imapClient = new ImapClient($credentials->getImapServer(), $credentials->getImapLogin(), $credentials->getImapPassword());
     $api->login($credentials->getLogin(), $credentials->getPassword(), $imapClient);
 
-    $profile = $api->getProfile('robertdowneyjr');
+    $profile = $api->getProfile('fm.shot');
 
     echo '============================' . "\n";
     echo 'User Information : ' . "\n";

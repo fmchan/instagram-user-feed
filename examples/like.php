@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Instagram\Api;
+use Instagram\Auth\Checkpoint\ImapClient;
 use Instagram\Exception\InstagramException;
 
 use Psr\Cache\CacheException;
@@ -14,15 +15,17 @@ $credentials = include_once realpath(dirname(__FILE__)) . '/credentials.php';
 $cachePool = new FilesystemAdapter('Instagram', 0, __DIR__ . '/../cache');
 
 try {
-    $api = new Api($cachePool);
-    $api->login($credentials->getLogin(), $credentials->getPassword());
+    $api        = new Api($cachePool);
+    $imapClient = new ImapClient($credentials->getImapServer(), $credentials->getImapLogin(), $credentials->getImapPassword());
+    $api->login($credentials->getLogin(), $credentials->getPassword(), $imapClient);
 
-    // 2407752139969665290 is https://www.instagram.com/p/CFqDdCCFBkK/
-    $postId = 2407752139969665290;
+    //<meta property="al:ios:url" content="instagram://media?id=3182032023399966735">
+    $postId = 3151765207093525653;
 
-    $follow = $api->like($postId);
+    $like = $api->like($postId);
 
-    echo $follow . PHP_EOL;
+    //echo $follow . PHP_EOL;
+    print_r($like);
 
 } catch (InstagramException $e) {
     print_r($e->getMessage());

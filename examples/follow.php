@@ -18,7 +18,7 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     // 184263228 is pgrimaud's account id
-    $userId = 184263228;
+    $userId = 31610061;
 
     $follow = $api->follow($userId);
 

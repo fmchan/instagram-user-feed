@@ -18,7 +18,7 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     // we need instagram user id
-    $profile = $api->getProfile('starwars');
+    $profile = $api->getProfile('fm.feed');
     sleep(1);
     $feedStories = $api->getStories($profile->getId());
 

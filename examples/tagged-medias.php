@@ -18,15 +18,15 @@ try {
     $api->login($credentials->getLogin(), $credentials->getPassword());
 
     // ID 1518284433 is robertdowneyjr
-    $feed = $api->getTaggedMedias(1518284433);
+    $feed = $api->getTaggedMedias(31610061);
     printMedias($feed->getMedias());
 
-    do {
+    /*do {
         $feed = $api->getTaggedMedias(1518284433, $feed->getEndCursor());
         printMedias($feed->getMedias());
 
         sleep(1);
-    } while ($feed->hasNextPage());
+    } while ($feed->hasNextPage());*/
 
 } catch (InstagramException $e) {
     print_r($e->getMessage());
