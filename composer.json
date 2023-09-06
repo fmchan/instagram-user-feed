@@ -1,5 +1,5 @@
 {
-  "name": "pgrimaud/instagram-user-feed",
+  "name": "fmchan/instagram-user-feed",
   "type": "library",
   "description": "This is a scraper to easily fetch any feed and interact with Instagram (like, follow, etc.) without OAuth for PHP.",
   "keywords": [
@@ -10,20 +10,12 @@
     "social",
     "sdk"
   ],
-  "homepage": "https://github.com/pgrimaud/instagram-user-feed",
+  "homepage": "https://github.com/fmchan/instagram-user-feed",
   "license": "MIT",
   "authors": [
     {
-      "name": "Pierre Grimaud",
-      "email": "grimaud.pierre@gmail.com"
-    },
-    {
-      "name": "Charles Salvan",
-      "email": "charles.salvan@hotmail.fr"
-    },
-    {
-      "name": "Tim Bond",
-      "email": "cookieguru@gmail.com"
+      "name": "fmchan",
+      "email": "ask@fmchan.com"
     }
   ],
   "autoload": {
